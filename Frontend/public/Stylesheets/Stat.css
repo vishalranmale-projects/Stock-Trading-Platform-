@@ -1,0 +1,16 @@
+.Statimg {
+  height: 28rem;
+  width: 25rem;
+  margin-left: 5rem;
+}
+.Anchor {
+  margin-left: 8rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  display: inline;
+}
+.textBlock {
+  height: 30rem;
+  width: 25rem;
+  margin-left: 5rem;
+}

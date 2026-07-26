@@ -14,8 +14,8 @@ function Hero() {
         </p>
         <button
           type="button"
-          className="btn btn-primary btn-lg mt-4"
-          style={{ width: "200px", margin: "auto" }}
+          style={{ width: "200px" }}
+          className="btn btn-primary btn-lg mt-4 mx-auto d-block"
         >
           Signup Now
         </button>
