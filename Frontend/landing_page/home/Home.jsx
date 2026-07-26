@@ -10,7 +10,6 @@ import Pricing from "./Pricing.jsx";
 export default function Home() {
   return (
     <>
-      <h1>Hiii</h1>
       <Navbar></Navbar>
       <Hero></Hero>
       <Awards></Awards>

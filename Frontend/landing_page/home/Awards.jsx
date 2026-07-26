@@ -2,7 +2,7 @@ import React from "react";
 import "../../public/Stylesheets/Award.css";
 function Awards() {
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div className="row gx-5">
         <div className="col-6">
           <div className="row">
