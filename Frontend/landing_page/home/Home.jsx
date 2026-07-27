@@ -10,14 +10,12 @@ import Pricing from "./Pricing.jsx";
 export default function Home() {
   return (
     <>
-      <Navbar></Navbar>
       <Hero></Hero>
       <Awards></Awards>
       <Stats></Stats>
       <Pricing></Pricing>
       <Education></Education>
       <OpenAccount></OpenAccount>
-      <Footer></Footer>
     </>
   );
 }

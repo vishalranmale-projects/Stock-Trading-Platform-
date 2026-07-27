@@ -3,9 +3,13 @@ import "../../public/Stylesheets/Hero.css";
 
 function Hero() {
   return (
-    <div className="container p-4 mt-5">
+    <div className="container p-4 ">
       <div className="row mb-5 text-center">
-        <img src="/public/media/homeHero.png" alt="Hero Image"></img>
+        <img
+          src="/public/media/homeHero.png"
+          alt="Hero Image"
+          style={{ marginTop: "60px" }}
+        ></img>
 
         <h1 className="H">Invest in everything</h1>
         <p>
