@@ -1,3 +1,10 @@
+import Hero from "./Hero";
+import RaiseTicket from "./RaiseTicket";
 export default function Support() {
-  return <h1>Support Page</h1>;
+  return (
+    <>
+      <Hero />
+      <RaiseTicket />
+    </>
+  );
 }

@@ -14,7 +14,7 @@ import Productpage from "../landing_page/products/Productpage.jsx";
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Navbar></Navbar>
-    <div style={{ paddingTop: "70px" }}>
+    <div>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
