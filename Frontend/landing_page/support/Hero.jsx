@@ -68,7 +68,7 @@ export default function Hero() {
                 <a
                   className="text-center"
                   href="#"
-                  style={{ color: "white", marginLeft: "5.3rem" }}
+                  style={{ color: "white", marginLeft: "7rem" }}
                 >
                   Track Tickets
                 </a>
@@ -76,7 +76,7 @@ export default function Hero() {
               <div className="row">
                 <h5 style={{ color: "white" }}>Featured</h5>
               </div>
-              <div className="row">
+              <div className="row ms-2">
                 <p style={{ color: "white" }}>
                   1.
                   <a style={{ color: "White" }} href="#">
@@ -84,7 +84,7 @@ export default function Hero() {
                   </a>
                 </p>
               </div>
-              <div className="row">
+              <div className="row ms-2">
                 <p style={{ color: "white" }}>
                   2.
                   <a style={{ color: "White" }} href="#">
