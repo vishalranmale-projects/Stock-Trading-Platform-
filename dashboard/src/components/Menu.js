@@ -108,9 +108,14 @@ const Menu = () => {
           </li>
         </ul>
         <hr />
-
-        <div className="avatar">ZU</div>
-        <p className="username">USERID</p>
+        {false ? (
+          <>
+            <div className="avatar">ZU</div>
+            <p className="username">USERID</p>
+          </>
+        ) : (
+          <h1>null</h1>
+        )}
       </div>
     </div>
   );
