@@ -1,5 +1,7 @@
 import React from "react";
 import { holdings } from "../data/data";
+
+fetchHoldings();
 const Holdings = () => {
   return (
     <>

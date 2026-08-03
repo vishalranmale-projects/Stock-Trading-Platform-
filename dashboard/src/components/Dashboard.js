@@ -11,6 +11,7 @@ import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
 
+  const holdings = fetch("")
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
