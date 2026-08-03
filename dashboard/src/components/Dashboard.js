@@ -10,8 +10,9 @@ import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
+import { useEffect } from "react";
+import axios from "axios";
 
-  const holdings = fetch("")
 const Dashboard = () => {
   return (
     <div className="dashboard-container">
