@@ -4,7 +4,7 @@ import { Tooltip, Grow } from "@mui/material";
 import { watchlist } from "../data/data";
 import WatchListItem from "./WatchListItem";
 
-const WatchList = () => {
+const WatchList = ({ sell }) => {
   return (
     <div className="watchlist-container">
       <div className="search-container">
@@ -20,7 +20,13 @@ const WatchList = () => {
 
       <ul className="list">
         {watchlist.map((stock, index) => {
-          return <WatchListItem stock={stock} key={index}></WatchListItem>;
+          return (
+            <WatchListItem
+              sell={sell}
+              stock={stock}
+              key={index}
+            ></WatchListItem>
+          );
         })}
       </ul>
     </div>

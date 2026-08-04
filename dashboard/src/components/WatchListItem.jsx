@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import WatchlistOptions from "./WatchlistOptions.jsx";
-export default function WatchListItem({ stock, index }) {
+export default function WatchListItem({ stock, index, sell }) {
   const [showWatchlistActions, setWatchlistActions] = useState(false);
 
   function handleMouseEnter() {
@@ -24,7 +24,7 @@ export default function WatchListItem({ stock, index }) {
           <span className="price">{stock.price}</span>
         </div>
       </div>
-      {showWatchlistActions && <WatchlistOptions uid={index} />}
+      {showWatchlistActions && <WatchlistOptions sell={sell} uid={index} />}
     </li>
   );
 }
