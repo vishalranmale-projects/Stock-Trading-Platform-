@@ -24,7 +24,9 @@ export default function WatchListItem({ stock, index, sell }) {
           <span className="price">{stock.price}</span>
         </div>
       </div>
-      {showWatchlistActions && <WatchlistOptions sell={sell} uid={index} />}
+      {showWatchlistActions && (
+        <WatchlistOptions sell={sell} uid={stock.name} Price={stock.price} />
+      )}
     </li>
   );
 }

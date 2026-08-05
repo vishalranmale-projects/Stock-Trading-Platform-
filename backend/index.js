@@ -29,8 +29,9 @@ app.get("/addHoldings", async (req, resp) => {
   resp.send("Okay Inserted!");
 });
 
-app.get("/addPositions", async (req, resp) => {
-  await positionsModel.insertMany(positions);
+app.post("/addPositions", async (req, resp) => {
+  let p1 = new positionsModel(req.body);
+  await p1.save();
   resp.send("Okay Inserted!");
 });
 

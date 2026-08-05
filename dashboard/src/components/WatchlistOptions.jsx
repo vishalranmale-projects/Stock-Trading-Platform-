@@ -1,6 +1,6 @@
 import { BarChartOutlined, MoreHoriz } from "@mui/icons-material";
 import { Tooltip, Grow } from "@mui/material";
-export default function WatchListItem({ uid, sell }) {
+export default function WatchListItem({ uid, sell, Price }) {
   return (
     <>
       <span className="actions">
@@ -9,7 +9,7 @@ export default function WatchListItem({ uid, sell }) {
             <button
               className="buy"
               onClick={() => {
-                sell(true);
+                sell(true, uid, Price);
               }}
             >
               Buy
