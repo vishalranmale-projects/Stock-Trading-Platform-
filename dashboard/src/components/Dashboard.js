@@ -18,7 +18,6 @@ import BuyActionWindow from "./BuyActionWindow.jsx";
 const Dashboard = () => {
   let [issell, setissell] = useState([]);
   function handlesell(value, Name, Price) {
-    console.log("hiihii");
     console.log(value + "" + Name + "" + Price);
     setissell([value, Name, Price]);
   }
@@ -28,7 +27,11 @@ const Dashboard = () => {
       <WatchList sell={handlesell} />
       {/* </GeneralContextProvider> */}
       {issell[0] ? (
-        <BuyActionWindow Name2={issell[1]} Price={issell[2]}></BuyActionWindow>
+        <BuyActionWindow
+          Buy={handlesell}
+          Name2={issell[1]}
+          Price={issell[2]}
+        ></BuyActionWindow>
       ) : null}
       <div className="content">
         <Routes>

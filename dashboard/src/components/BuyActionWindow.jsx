@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-export default function BuyActionWindow({ Name2, Price }) {
+export default function BuyActionWindow({ Name2, Price, Buy }) {
   let [Quantity, SetQuantity] = useState(1);
   let [Price2, SetPrice] = useState(Price);
   function handleQuantityChange(e) {
@@ -18,14 +18,18 @@ export default function BuyActionWindow({ Name2, Price }) {
       name: Name2,
       qty: e.target.qty.value,
       price: e.target.price.value,
-      mode: "Online",
+      mode: "BUY",
     });
-    console.log(res);
   }
 
   return (
     <div className="container" style={{ height: "10rem", width: "15rem" }}>
-      <form onSubmit={handleBuy}>
+      <form
+        onSubmit={(e) => {
+          handleBuy(e);
+          Buy(false, Name2, Price);
+        }}
+      >
         <div className="row">
           <div className="col-6">
             <legend>Qty.</legend>

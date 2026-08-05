@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import express from "express";
+import express, { urlencoded } from "express";
 import { configDotenv } from "dotenv";
 import holding from "./model/holding.js";
 import positionsModel from "./model/positions.js";
@@ -19,6 +19,9 @@ mongoose.connect(`${process.env.mongoDB_URL}`).then(() => {
   console.log("Connected Sucessfully");
 });
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.get("/", (req, resp) => {
   resp.send("Okay!");
 });
@@ -30,8 +33,11 @@ app.get("/addHoldings", async (req, resp) => {
 });
 
 app.post("/addPositions", async (req, resp) => {
-  let p1 = new positionsModel(req.body);
+  let p1 = new orderModel(req.body);
+  console.log("Called!");
+  console.log(req.body);
   await p1.save();
+  console.log("Saved!");
   resp.send("Okay Inserted!");
 });
 
