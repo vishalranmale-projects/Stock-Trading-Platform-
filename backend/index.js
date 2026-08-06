@@ -7,10 +7,29 @@ import orderModel from "./model/order.js";
 import { holdings } from "../dashboard/src/data/data.js";
 import { positions } from "../dashboard/src/data/data.js";
 import cors from "cors";
-
+import session from "express-session";
+import passport from "passport";
+import passportLocal from "passport-local";
+import userModel from "./model/user.js";
 configDotenv();
 const app = express();
-
+const sessionOptions = {
+  // store:store,
+  secret: "MyFirstSceret",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
+};
+app.use(session(sessionOptions));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new passportLocal(userModel.authenticate()));
+passport.serializeUser(userModel.serializeUser());
+passport.deserializeUser(userModel.deserializeUser());
 app.listen(3000, () => {
   console.log("Backend Server is Listening on An Port 3000");
 });
@@ -50,3 +69,27 @@ app.get("/getHoldings", async (req, resp) => {
   let data = await holding.find({});
   resp.json(data);
 });
+
+// Sign-in Route
+app.post("/signup", async (req, resp) => {
+  let user1 = new userModel({
+    username: req.body.username,
+    email_id: req.body.email_id,
+  });
+  const res = await userModel.register(user1, req.body.password);
+  resp.redirect("http://localhost:3001/");
+});
+
+app.get("/signin", (req, resp) => {
+  resp.send("Sucessfully Failed!");
+});
+
+app.post(
+  "/signin",
+  passport.authenticate("local", {
+    failureRedirect: "/signin",
+  }),
+  (req, resp) => {
+    resp.send("Sucessfully Loged-in!");
+  },
+);

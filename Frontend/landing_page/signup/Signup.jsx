@@ -1,3 +1,10 @@
+import Hero from "./hero";
+import Middle from "./Middle";
 export default function Signup() {
-  return <h1>Signup</h1>;
+  return (
+    <>
+      <Hero></Hero>
+      <Middle></Middle>
+    </>
+  );
 }

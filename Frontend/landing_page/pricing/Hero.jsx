@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <>
-      <div className="container mt-5">
+      <div className="container" style={{ marginTop: "8rem" }}>
         <div className="row text-center">
           <h2>Pricing</h2>
         </div>
