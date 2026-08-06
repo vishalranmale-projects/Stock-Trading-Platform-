@@ -6,7 +6,13 @@ export default function Hero() {
         style={{ marginTop: "10rem", marginBottom: "3rem" }}
       >
         <div className="row">
-          <h3 style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <h3
+            style={{
+              textAlign: "center",
+              marginBottom: "2rem",
+              color: "rgb(14, 111, 201)",
+            }}
+          >
             Open a free demat and trading account online
           </h3>
         </div>

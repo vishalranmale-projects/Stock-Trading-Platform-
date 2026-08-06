@@ -33,6 +33,7 @@ export default function Middle() {
                     id="exampleFormControlInput1"
                     placeholder="Vishal Ranmale"
                     name="username"
+                    required
                   ></input>
                 </div>
                 <div class="mb-3">
@@ -45,6 +46,7 @@ export default function Middle() {
                     id="exampleFormControlInput2"
                     placeholder="name@example.com"
                     name="email_id"
+                    required
                   ></input>
                 </div>
                 <div class="mb-3">
@@ -56,6 +58,7 @@ export default function Middle() {
                     class="form-control"
                     id="exampleFormControlInput3"
                     name="password"
+                    required
                   ></input>
                 </div>
                 <div className="mb-3">
@@ -63,14 +66,20 @@ export default function Middle() {
                     By proceeding, you agree to the Zerodha{" "}
                     <a
                       href="#"
-                      style={{ color: "blue", textDecoration: "none" }}
+                      style={{
+                        color: "rgb(14, 111, 201)",
+                        textDecoration: "none",
+                      }}
                     >
                       terms&nbsp;
                     </a>
                     &
                     <a
                       href="#"
-                      style={{ color: "blue", textDecoration: "none" }}
+                      style={{
+                        color: "rgb(14, 111, 201)",
+                        textDecoration: "none",
+                      }}
                     >
                       {" "}
                       privacy policy
@@ -84,7 +93,10 @@ export default function Middle() {
                     Looking to open NRI account ?{" "}
                     <a
                       href="#"
-                      style={{ color: "blue", textDecoration: "none" }}
+                      style={{
+                        color: "rgb(14, 111, 201)",
+                        textDecoration: "none",
+                      }}
                     >
                       Click here
                     </a>
@@ -102,7 +114,12 @@ export default function Middle() {
       </div>
       <div className="container">
         <div className="row">
-          <h3 className="text-center mb-3">Already have a demat account?</h3>
+          <h3
+            className="text-center mb-3"
+            style={{ color: "rgb(14, 111, 201)" }}
+          >
+            Already have a demat account?
+          </h3>
         </div>
         <div className="row">
           <h5
@@ -111,7 +128,10 @@ export default function Middle() {
           >
             Move your holdings to Zerodha and we'll cover your transfer costs,
             up to ₹500,{" "}
-            <a href="#" style={{ color: "blue", textDecoration: "none" }}>
+            <a
+              href="#"
+              style={{ color: "rgb(14, 111, 201)", textDecoration: "none" }}
+            >
               learn more.
             </a>
           </h5>

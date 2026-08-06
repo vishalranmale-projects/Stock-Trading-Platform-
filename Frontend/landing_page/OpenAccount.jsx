@@ -10,13 +10,15 @@ function OpenAccount() {
         </p>
 
         <div className="row">
-          <button
-            type="button"
-            style={{ width: "200px" }}
-            className="btn btn-primary btn-lg  mx-auto d-block"
-          >
-            Signup Now
-          </button>
+          <a href="http://localhost:5173/signup">
+            <button
+              type="button"
+              style={{ width: "200px" }}
+              className="btn btn-primary btn-lg  mx-auto d-block"
+            >
+              Signup Now
+            </button>
+          </a>
         </div>
       </div>
     </>
