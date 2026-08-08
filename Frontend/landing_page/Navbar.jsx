@@ -19,6 +19,7 @@ function Navbar() {
             className="mb-1"
           ></img>
         </a>
+
         <div className="Navbar mt-2">
           <Link
             to={"http://localhost:5173/signup"}
