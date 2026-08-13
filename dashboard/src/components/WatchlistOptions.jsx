@@ -1,6 +1,6 @@
 import { BarChartOutlined, MoreHoriz } from "@mui/icons-material";
 import { Tooltip, Grow } from "@mui/material";
-export default function WatchListItem({ uid, sell, Price }) {
+export default function WatchListItem({ sell, Name, Price, qty }) {
   return (
     <>
       <span className="actions">
@@ -9,7 +9,7 @@ export default function WatchListItem({ uid, sell, Price }) {
             <button
               className="buy"
               onClick={() => {
-                sell(true, uid, Price);
+                sell(true, Name, Price, qty, 1);
               }}
             >
               Buy
@@ -21,7 +21,14 @@ export default function WatchListItem({ uid, sell, Price }) {
             arrow
             TransitionComponent={Grow}
           >
-            <button className="sell">Sell</button>
+            <button
+              className="sell"
+              onClick={() => {
+                sell(true, Name, Price, qty, 2);
+              }}
+            >
+              Sell
+            </button>
           </Tooltip>
           <Tooltip
             title="Analytics (A)"

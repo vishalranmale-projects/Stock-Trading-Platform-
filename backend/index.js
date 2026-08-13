@@ -51,8 +51,8 @@ app.get("/addHoldings", async (req, resp) => {
   resp.send("Okay Inserted!");
 });
 
-app.post("/addPositions", async (req, resp) => {
-  let p1 = new positionsModel(req.body);
+app.post("/addOrders", async (req, resp) => {
+  let p1 = new orderModel(req.body);
   console.log("Called!");
   console.log(req.body);
   await p1.save();

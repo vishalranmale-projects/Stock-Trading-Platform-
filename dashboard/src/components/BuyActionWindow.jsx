@@ -1,6 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
-export default function BuyActionWindow({ Name2, Price, Buy }) {
+export default function BuyActionWindow({
+  isClicked,
+  Name,
+  Price,
+  Buy,
+  BuyOrSell,
+}) {
   let [Quantity, SetQuantity] = useState(1);
   let [Price2, SetPrice] = useState(Price);
   function handleQuantityChange(e) {
@@ -12,13 +18,13 @@ export default function BuyActionWindow({ Name2, Price, Buy }) {
   }
   async function handleBuy(e) {
     e.preventDefault();
-
     console.log("Buyed");
-    let res = await axios.post("http://localhost:3000/addPositions", {
-      name: Name2,
+    console.log(BuyOrSell);
+    let res = await axios.post("http://localhost:3000/addOrders", {
+      name: Name,
       qty: e.target.qty.value,
       price: e.target.price.value,
-      mode: "BUY",
+      mode: BuyOrSell == 1 ? "BUY" : "SELL",
     });
   }
 
@@ -27,7 +33,7 @@ export default function BuyActionWindow({ Name2, Price, Buy }) {
       <form
         onSubmit={(e) => {
           handleBuy(e);
-          Buy(false, Name2, Price);
+          Buy(false, Name, Price);
         }}
       >
         <div className="row">
@@ -65,16 +71,30 @@ export default function BuyActionWindow({ Name2, Price, Buy }) {
             </p>
           </div>
           <div className="col-6">
-            <button
-              style={{
-                width: "3rem",
-                height: "1.8rem",
-                backgroundColor: "skyblue",
-                marginleft: "10px",
-              }}
-            >
-              Buy
-            </button>
+            {BuyOrSell === 1 ? (
+              <button
+                style={{
+                  width: "3rem",
+                  height: "1.8rem",
+                  backgroundColor: "skyblue",
+                  marginleft: "10px",
+                }}
+              >
+                Buy
+              </button>
+            ) : (
+              <button
+                style={{
+                  width: "3rem",
+                  height: "1.8rem",
+                  backgroundColor: "skyblue",
+                  marginleft: "10px",
+                }}
+              >
+                Sell
+              </button>
+            )}
+
             <button
               style={{
                 width: "4.5rem",
