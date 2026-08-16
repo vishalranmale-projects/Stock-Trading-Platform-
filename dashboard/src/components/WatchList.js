@@ -7,7 +7,7 @@ import { DonutChart } from "./DonutChart";
 const labels = watchlist.map((holdings) => {
   return holdings["name"];
 });
-const WatchList = ({ sell }) => {
+const WatchList = ({ handlesell}) => {
   const data = {
     labels,
     datasets: [
@@ -79,7 +79,7 @@ const WatchList = ({ sell }) => {
         {watchlist.map((stock, index) => {
           return (
             <WatchListItem
-              sell={sell}
+             handlesell={handlesell}
               stock={stock}
               key={index}
             ></WatchListItem>

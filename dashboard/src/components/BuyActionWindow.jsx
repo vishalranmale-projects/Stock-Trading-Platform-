@@ -1,14 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-export default function BuyActionWindow({
-  isClicked,
-  Name,
-  Price,
-  Buy,
-  BuyOrSell,
-}) {
+export default function BuyActionWindow({ name, price, buyOrsell }) {
   let [Quantity, SetQuantity] = useState(1);
-  let [Price2, SetPrice] = useState(Price);
+  let [Price2, SetPrice] = useState(price);
   function handleQuantityChange(e) {
     SetQuantity(e.target.value);
     let newPrise = e.target.value * Price2;
@@ -18,13 +12,11 @@ export default function BuyActionWindow({
   }
   async function handleBuy(e) {
     e.preventDefault();
-    console.log("Buyed");
-    console.log(BuyOrSell);
     let res = await axios.post("http://localhost:3000/addOrders", {
-      name: Name,
+      name: name,
       qty: e.target.qty.value,
       price: e.target.price.value,
-      mode: BuyOrSell == 1 ? "BUY" : "SELL",
+      mode: buyOrsell == 1 ? "BUY" : "SELL",
     });
   }
 
@@ -33,7 +25,6 @@ export default function BuyActionWindow({
       <form
         onSubmit={(e) => {
           handleBuy(e);
-          Buy(false, Name, Price);
         }}
       >
         <div className="row">
@@ -71,7 +62,7 @@ export default function BuyActionWindow({
             </p>
           </div>
           <div className="col-6">
-            {BuyOrSell === 1 ? (
+            {buyOrsell === 1 ? (
               <button
                 style={{
                   width: "3rem",

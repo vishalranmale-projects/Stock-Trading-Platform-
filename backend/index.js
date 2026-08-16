@@ -93,3 +93,7 @@ app.post(
     resp.send("Sucessfully Loged-in!");
   },
 );
+app.get("/getOrders", async (req, resp) => {
+  let data = await orderModel.find({});
+  resp.send(data);
+});
