@@ -13,6 +13,7 @@ import passportLocal from "passport-local";
 import userModel from "./model/user.js";
 configDotenv();
 const app = express();
+app.use();
 const sessionOptions = {
   // store:store,
   secret: "MyFirstSceret",
