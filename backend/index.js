@@ -14,7 +14,7 @@ import userModel from "./model/user.js";
 configDotenv();
 const app = express();
 app.use();
-app.use()"
+app.use()aop
 const sessionOptions = {
   // store:store,
   secret: "MyFirstSceret",
