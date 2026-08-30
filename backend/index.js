@@ -13,8 +13,7 @@ import passportLocal from "passport-local";
 import userModel from "./model/user.js";
 configDotenv();
 const app = express();
-app.use();
-app.use()aop
+app.use(cors());
 const sessionOptions = {
   // store:store,
   secret: "MyFirstSceret",
