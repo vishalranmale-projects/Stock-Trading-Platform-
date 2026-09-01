@@ -12,6 +12,7 @@ import passport from "passport";
 import passportLocal from "passport-local";
 import userModel from "./model/user.js";
 configDotenv();
+app.use(extended.urlencoded());
 const app = express();
 app.use(cors());
 const sessionOptions = {
