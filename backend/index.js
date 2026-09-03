@@ -15,6 +15,7 @@ configDotenv();
 app.use(extended.urlencoded());
 const app = express();
 app.use(cors());
+app.use(cors());
 const sessionOptions = {
   // store:store,
   secret: "MyFirstSceret",
