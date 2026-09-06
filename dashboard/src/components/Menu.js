@@ -7,14 +7,15 @@ import { Link } from "react-router-dom";
 const Menu = () => {
  let [username,setusername] = useState("Demo");
   async function fetchUser(){
-    let data =  await axios.get("http://localhost:3000/getuserName");
+    let data =  await axios.get("http://localhost:3000/getuserName",{withCredentials: true});
     setusername(()=>{
-      return data.data;
+      return data.data.toString();
     })
   }
   useEffect(()=>{
     fetchUser();
   },[]);
+ 
   let [selectedMenue, setselectedMenue] = useState(1);
   function handleClickMenue(e, a) {
     setselectedMenue((selectedMenue) => {

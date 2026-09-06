@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../landing_page/home/Home.jsx";
 import Signup from "../landing_page/signup/Signup.jsx";
+import Signin from "../landing_page/Signin/Signin.jsx";
 import About from "../landing_page/about/AboutPage.jsx";
 import Pricing from "../landing_page/pricing/PricingPage.jsx";
 import Products from "../landing_page/products/Hero.jsx";
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")).render(
     <div>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/signup" element={<Signin></Signin>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/pricing" element={<Pricing></Pricing>}></Route>

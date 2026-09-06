@@ -14,8 +14,10 @@ import userModel from "./model/user.js";
 configDotenv();
 
 const app = express();
-app.use(cors());
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    credentials: true
+}));
 const sessionOptions = {
   // store:store,
   secret: "MyFirstSceret",
@@ -93,7 +95,7 @@ app.post(
     failureRedirect: "/Failure",
   }),
   (req, resp) => {
-  resp.send("Okay Logged-In")
+  resp.redirect("http://localhost:3001/")
   },
 );
 app.get("/getOrders", async (req, resp) => {
@@ -101,11 +103,10 @@ app.get("/getOrders", async (req, resp) => {
   resp.send(data);
 });
 app.get("/getuserName",(req,resp)=>{
-  if(req.isAuthenticated){
+  if(req.isAuthenticated()){
    resp.send(req.user.username);
   }
   else{
-    resp.send("Demo");
+    resp.send("Demo2");
   }
-  
 })

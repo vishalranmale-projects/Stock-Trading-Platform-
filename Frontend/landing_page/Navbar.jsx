@@ -29,6 +29,16 @@ function Navbar() {
             }}
             className="navbar-brand Navbartext"
           >
+            Signin
+          </Link>
+          <Link
+            to={"http://localhost:5173/signup"}
+            style={{ color: click2 == 1 ? "rgb(14, 111, 201)" : "black" }}
+            onClick={(e) => {
+              handleClick(1, e);
+            }}
+            className="navbar-brand Navbartext"
+          >
             Signup
           </Link>
           <Link
