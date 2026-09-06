@@ -1,14 +1,25 @@
+import axios from "axios";
 import { useState } from "react";
+import { useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 // import { handleProfileClick } from "../utils/someFile";
 const Menu = () => {
+ let [username,setusername] = useState("Demo");
+  async function fetchUser(){
+    let data =  await axios.get("http://localhost:3000/getuserName");
+    setusername(()=>{
+      return data.data;
+    })
+  }
+  useEffect(()=>{
+    fetchUser();
+  },[]);
   let [selectedMenue, setselectedMenue] = useState(1);
   function handleClickMenue(e, a) {
     setselectedMenue((selectedMenue) => {
       return a;
     });
-    console.log(selectedMenue + "hii");
   }
   return (
     <div className="menu-container">
@@ -114,7 +125,10 @@ const Menu = () => {
             <p className="username">USERID</p>
           </>
         ) : (
-          <h1>null</h1>
+        <>
+       <i class="fa-regular fa-user"></i>
+          &nbsp;
+          <p>{username}</p> </>
         )}
       </div>
     </div>

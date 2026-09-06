@@ -73,7 +73,7 @@ app.get("/getHoldings", async (req, resp) => {
   resp.json(data);
 });
 
-// Sign-in Route
+// Signup Route
 app.post("/signup", async (req, resp) => {
   let user1 = new userModel({
     username: req.body.username,
@@ -83,20 +83,29 @@ app.post("/signup", async (req, resp) => {
   resp.redirect("http://localhost:3001/");
 });
 
-app.get("/signin", (req, resp) => {
-  resp.send("Sucessfully Failed!");
-});
+app.get("/Failure",(req,resp)=>{
+  resp.send("Login Failed!");
+})
 
 app.post(
   "/signin",
   passport.authenticate("local", {
-    failureRedirect: "/signin",
+    failureRedirect: "/Failure",
   }),
   (req, resp) => {
-    resp.send("Sucessfully Loged-in!");
+  resp.send("Okay Logged-In")
   },
 );
 app.get("/getOrders", async (req, resp) => {
   let data = await orderModel.find({});
   resp.send(data);
 });
+app.get("/getuserName",(req,resp)=>{
+  if(req.isAuthenticated){
+   resp.send(req.user.username);
+  }
+  else{
+    resp.send("Demo");
+  }
+  
+})
