@@ -1,10 +1,18 @@
 import React from "react";
-
+import {sendUserName} from "./Menu";
+import { useState } from "react";
+import { useEffect } from "react";
 const Summary = () => {
+  let [username,setusername] = useState("Demo");
+  useEffect(()=>{
+       sendUserName().then((data)=>{
+        setusername(data);
+       });
+  },[])
   return (
     <>
       <div className="username">
-        <h6>Hi, User!</h6>
+        <h6>Hi, {username}!</h6>
         <hr className="divider" />
       </div>
 

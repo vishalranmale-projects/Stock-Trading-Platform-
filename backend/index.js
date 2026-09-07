@@ -59,13 +59,38 @@ app.get("/addHoldings", async (req, resp) => {
   resp.send("Okay Inserted!");
 });
 
-app.post("/addOrders", async (req, resp) => {
-  let p1 = new orderModel(req.body);
-  console.log("Called!");
-  console.log(req.body);
-  await p1.save();
-  console.log("Saved!");
-  resp.send("Okay Inserted!");
+app.post("/addOrders", async (req, res) => {
+
+    console.log("Add Order Called");
+    console.log("User:", req.user);
+    console.log("Body:", req.body);
+
+    if (!req.isAuthenticated()) {
+        return res.status(401).json({
+            message: "User not authenticated"
+        });
+      }
+    try {
+        let p1 = new orderModel({
+            ...req.body,
+            userId: req.user._id
+        });
+        await p1.save();
+        await userModel.findByIdAndUpdate(
+            req.user._id,
+            {
+                $push: {
+                    orders: p1._id
+                }
+            }
+        );
+        res.send("Okay Inserted!");
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            message: "Error creating order"
+        });
+    }
 });
 
 app.get("/getPositions", async (req, resp) => {
@@ -110,6 +135,8 @@ app.get("/getuserName",(req,resp)=>{
    resp.send(req.user.username);
   }
   else{
-    resp.send("Demo2");
+     return res.status(401).json({
+            message: "Not authenticated"
+        });
   }
 })

@@ -1,15 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
-export default function BuyActionWindow({ BuyorSell, handlewindow, name, price }) {
+export default function BuyActionWindow({ BuyorSell,handlewindow,Name,price }) {
   
   async function handleBuy(e) {
     e.preventDefault();
     let res = await axios.post("http://localhost:3000/addOrders", {
-      name: name,
+      name: Name,
       qty: e.target.qty.value,
       price: e.target.price.value,
       mode:  BuyorSell == 1 ? "BUY" : "SELL",
-    });
+    },{withCredentials:true});
   }
   let [price2,setprice] = useState(price)
   function handleqtychange(e){

@@ -4,14 +4,37 @@ import { useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 // import { handleProfileClick } from "../utils/someFile";
+async function sendUserName(){
+  try{
+    let data =  await axios.get("http://localhost:3000/getuserName",{withCredentials: true});
+    return data.data.toString();
+  }
+  catch (error) {
+
+        if (error.response?.status === 401) {
+            window.location.href = "http://localhost:5173/signin";
+        }
+
+        throw error;
+    }
+}
 const Menu = () => {
  let [username,setusername] = useState("Demo");
   async function fetchUser(){
+    try{
     let data =  await axios.get("http://localhost:3000/getuserName",{withCredentials: true});
     setusername(()=>{
       return data.data.toString();
     })
   }
+  catch (error) {
+        if (error.response?.status === 401) {
+            window.location.href = "http://localhost:5173/signin";
+        }
+        throw error;
+    }
+}
+
   useEffect(()=>{
     fetchUser();
   },[]);
@@ -136,4 +159,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export {sendUserName,Menu};
