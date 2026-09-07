@@ -126,16 +126,35 @@ app.post(
   resp.redirect("http://localhost:3001/")
   },
 );
-app.get("/getOrders", async (req, resp) => {
-  let data = await orderModel.find({});
-  resp.send(data);
+app.get("/getOrders", async (req, res) => {
+    try {
+        if (!req.isAuthenticated()) {
+            return res.status(401).json({
+                message: "User not authenticated"
+            });
+        }
+
+        let userId = req.user._id;
+
+        let user = await userModel
+            .findById(userId)
+            .populate("orders");
+
+        res.send(user.orders);
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            message: "Error fetching orders"
+        });
+    }
 });
 app.get("/getuserName",(req,resp)=>{
   if(req.isAuthenticated()){
    resp.send(req.user.username);
   }
   else{
-     return res.status(401).json({
+     return resp.status(401).json({
             message: "Not authenticated"
         });
   }

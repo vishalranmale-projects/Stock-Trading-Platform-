@@ -10,11 +10,9 @@ async function sendUserName(){
     return data.data.toString();
   }
   catch (error) {
-
         if (error.response?.status === 401) {
-            window.location.href = "http://localhost:5173/signin";
+            window.location.href = "http://localhost:5173/signup";
         }
-
         throw error;
     }
 }
@@ -29,7 +27,7 @@ const Menu = () => {
   }
   catch (error) {
         if (error.response?.status === 401) {
-            window.location.href = "http://localhost:5173/signin";
+            window.location.href = "http://localhost:5173/signup";
         }
         throw error;
     }

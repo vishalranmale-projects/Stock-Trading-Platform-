@@ -22,7 +22,7 @@ function Navbar() {
 
         <div className="Navbar mt-2">
           <Link
-            to={"http://localhost:5173/signup"}
+            to={"http://localhost:5173/signin"}
             style={{ color: click2 == 1 ? "rgb(14, 111, 201)" : "black" }}
             onClick={(e) => {
               handleClick(1, e);
@@ -33,7 +33,7 @@ function Navbar() {
           </Link>
           <Link
             to={"http://localhost:5173/signup"}
-            style={{ color: click2 == 1 ? "rgb(14, 111, 201)" : "black" }}
+            style={{ color: click2 == 2 ? "rgb(14, 111, 201)" : "black" }}
             onClick={(e) => {
               handleClick(1, e);
             }}
@@ -43,7 +43,7 @@ function Navbar() {
           </Link>
           <Link
             to={"http://localhost:5173/support"}
-            style={{ color: click2 == 2 ? "rgb(14, 111, 201)" : "black" }}
+            style={{ color: click2 == 3 ? "rgb(14, 111, 201)" : "black" }}
             onClick={(e) => {
               handleClick(2, e);
             }}
@@ -52,7 +52,7 @@ function Navbar() {
             Support
           </Link>
           <Link
-            style={{ color: click2 == 3 ? "rgb(14, 111, 201)" : "black" }}
+            style={{ color: click2 == 4 ? "rgb(14, 111, 201)" : "black" }}
             onClick={(e) => {
               handleClick(3, e);
             }}
@@ -63,7 +63,7 @@ function Navbar() {
           </Link>
           <Link
             to={"http://localhost:5173/products"}
-            style={{ color: click2 == 4 ? "rgb(14, 111, 201)" : "black" }}
+            style={{ color: click2 == 5 ? "rgb(14, 111, 201)" : "black" }}
             onClick={(e) => {
               handleClick(4, e);
             }}
@@ -73,7 +73,7 @@ function Navbar() {
           </Link>
           <Link
             to={"http://localhost:5173/about"}
-            style={{ color: click2 == 5 ? "rgb(14, 111, 201)" : "black" }}
+            style={{ color: click2 == 6 ? "rgb(14, 111, 201)" : "black" }}
             onClick={(e) => {
               handleClick(5, e);
             }}
@@ -82,7 +82,7 @@ function Navbar() {
             About
           </Link>
           <Link
-            style={{ color: click2 == 6 ? "rgb(14, 111, 201)" : "black" }}
+            style={{ color: click2 == 7 ? "rgb(14, 111, 201)" : "black" }}
             className="navbar-brand Navbartext"
             to={"#"}
             onClick={(e) => {

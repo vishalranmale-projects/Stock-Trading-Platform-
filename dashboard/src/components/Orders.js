@@ -8,7 +8,7 @@ const Orders = () => {
   useEffect(() => {
     let positions;
     let fetchPositions = async () => {
-      positions = await axios.get("http://localhost:3000/getOrders");
+      positions = await axios.get("http://localhost:3000/getOrders",{withCredentials:true});
       positions = positions.data;
       setallpositions(positions);
     };
