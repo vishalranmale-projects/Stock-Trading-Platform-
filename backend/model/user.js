@@ -5,9 +5,10 @@ let userSchema = mongoose.Schema({
   email_id: {
     type: String,
   },
-  positions: {},
-  orders: {},
-  holdings: {},
+    orders: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Order"
+    }]
 });
 userSchema.plugin(passportlocalmongoose.default);
 let userModel = mongoose.model("user", userSchema);

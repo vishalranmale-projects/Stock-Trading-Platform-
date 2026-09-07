@@ -15,7 +15,10 @@ configDotenv();
 
 const app = express();
 app.use(cors({
-    origin: "*",
+    origin: [
+        "http://localhost:3001",
+        "http://localhost:5173"
+    ],
     credentials: true
 }));
 const sessionOptions = {
@@ -38,7 +41,7 @@ passport.deserializeUser(userModel.deserializeUser());
 app.listen(3000, () => {
   console.log("Backend Server is Listening on An Port 3000");
 });
-app.use(cors());
+
 mongoose.connect(`${process.env.mongoDB_URL}`).then(() => {
   console.log("Connected Sucessfully");
 });
